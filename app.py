@@ -58,6 +58,36 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # =========================
+# DOWNLOAD DATASET CONTOH
+# =========================
+
+st.markdown(
+    '<div class="section">',
+    unsafe_allow_html=True
+)
+
+st.subheader("📥 Download Dataset")
+
+st.write("""
+Silakan unduh dataset contoh terlebih dahulu apabila belum memiliki file CSV.
+Setelah itu upload kembali dataset tersebut untuk melihat hasil visualisasi dashboard.
+""")
+
+# membaca dataset asli yang ada di folder project
+contoh_df = pd.read_csv("dataset_chartby_final (19).csv")
+
+csv_contoh = contoh_df.to_csv(index=False).encode("utf-8")
+
+st.download_button(
+    label="📥 Download Dataset Chartby",
+    data=csv_contoh,
+    file_name="dataset_chartby.csv",
+    mime="text/csv",
+    use_container_width=True
+)
+
+st.markdown("</div>", unsafe_allow_html=True)
+# =========================
 # UPLOAD FILE
 # =========================
 
